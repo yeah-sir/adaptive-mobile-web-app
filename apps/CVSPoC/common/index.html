@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="shortcut icon" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" type="text/css"
+	href="dojox/mobile/themes/iphone/iphone.css"></link>
+
+<link rel="stylesheet" href="css/main.css">
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
+<script type="text/javascript" src="dojox/mobile/deviceTheme.js"></script>
+<script type="text/javascript"
+	data-dojo-config="isDebug: false, async: true, parseOnLoad: true, mblHideAddressBar: false"
+	src="dojo/dojo.js"></script>
+
+
+</head>
+<body style="display: none;">
+	<div data-dojo-type="dojox.mobile.View" id="app"
+		data-dojo-props="selected:true">
+		<div class="container" style="visibility: hidden">
+			<!-- Header-->
+			<div data-dojo-type="dojox.mobile.Heading"
+				data-dojo-props="fixed:'top'">
+				<img style="vertical-align: middle;" border="0"
+					src="images/specialty-logo.png">
+			</div>
+
+			<!-- Home page -->
+			<div data-dojo-type="dojox.mobile.ScrollableView" id="home"
+				data-dojo-props="selected:true,scrollDir:'h',style:'background-color:white;'">
+				<div class="cvsLogoContainer">
+					<img class="CVSlogo" src="images/specialty-logo-white.png">
+				</div>
+				<!-- 
+			<div class="leftPane" style="background-color:tomato">This is pane#1</div>
+			<div class="rightPane" style="background-color:yellow;">This is pane#2</div> -->
+
+			</div>
+
+			<!-- Cart View -->
+			<div class="page" data-dojo-type="dojox.mobile.View" id="cart"
+				data-dojo-props="selected:false">
+
+				<!-- Cart View sub header -->
+				<div data-dojo-type="dojox.mobile.Heading"
+					data-dojo-props="fixed:'top'">
+					<ul class="cartNavIcon" data-dojo-type="dojox.mobile.TabBar"
+						fixed="top" fill="never"
+						data-dojo-props='barType:"segmentedControl", syncWithViews:true,toggle:true'>
+						<li class="cartNavIconButton" id="catalogNavButton"
+							data-dojo-type="dojox.mobile.TabBarButton"
+							data-dojo-props='moveTo:"cartPageContainer", selected:true'><img
+							src="images/list_bullets.png" /></li>
+						<li class="cartNavIconButton" id="cartNavButton"
+							data-dojo-type="dojox.mobile.TabBarButton"
+							data-dojo-props='moveTo:"myCart"'><img
+							src="images/shop_cart.png" /></li>
+					</ul>
+					<div class="cartNavTitle">Shopping Cart</div>
+
+					<button class="cartNavCheckout"
+						data-dojo-type="dojox.mobile.Button">Checkout</button>
+				</div>
+		
+				<div class="leftPane" id="cartPageContainer" data-dojo-type="dojox.mobile.View"
+					data-dojo-props="selected:false">
+					<!-- Page 1 of Cart view -->
+					<div class="cartPage" data-dojo-type="dojox.mobile.SwapView"
+						id="page1" data-dojo-props="selected:false">
+						<div class="cartFillerDiv"></div>
+					</div>
+					<div class="pageInd" id="cartPageInd"
+						data-dojo-type="dojox.mobile.PageIndicator"
+						data-dojo-props="fixed:'bottom', refId:'page1'"></div>
+				</div>
+				<div class="separatorPane checkoutPage"></div>
+				<div class="page checkoutPage rightPane"
+					data-dojo-type="dojox.mobile.ScrollableView" id="myCart"
+					data-dojo-props="selected:false, scrollDir:'v'">
+					<div class="checkoutContent">
+						<p class="cartText">There are no items in your cart</p>
+						<ul id="checkoutRect" class="checkoutBox"
+							data-dojo-type="dojox.mobile.RoundRectList">
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- History Page -->
+			<div class="page" data-dojo-type="dojox.mobile.View" id="history"
+				data-dojo-props="selected:false">
+				<div data-dojo-type="dojox.mobile.Heading"
+					data-dojo-props="fixed:'top'">
+					<div class="historyNavTitle">Prescription History</div>
+					<select class="filterMonths">
+						<option selected>Last month</option>
+						<option>Last 3 months</option>
+						<option>Last 6 months</option>
+					</select>
+				</div>
+				<!-- Swap View 1 -->
+				<div class="leftPane" id="historyPageContainer" data-dojo-type="dojox.mobile.View"
+					data-dojo-props="selected:false">
+				<div data-dojo-type="dojox.mobile.SwapView" id="presc1"
+					data-dojo-props="selected:false">
+					<div style="height: 5px;"></div>
+					
+				</div>
+				<div class="pageInd" id="historyPageInd"
+					data-dojo-type="dojox.mobile.PageIndicator"
+					data-dojo-props="fixed:'bottom', refId:'presc1'"></div>
+				</div>
+				<div class="separatorPane checkoutPage"></div>
+				<div data-dojo-type="dojox.mobile.ScrollableView" id="detailsHistoryPage"
+				class="page detailsPane rightPane" data-dojo-props="selected:false">
+				<div class="detailsContent"><span class="cartText">Click on drug to view details</span></div>
+			</div>
+			</div>
+
+			<!-- Checkout cart screen -->
+			<!-- <div class="page" data-dojo-type="dojox.mobile.ScrollableView"
+			id="myCart" data-dojo-props="selected:false, scrollDir:'v'">
+			<ul data-dojo-type="dojox.mobile.TabBar"
+				data-dojo-props='barType:"slimTab"' fixed="top" fill="always">
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props='selected:true'>Shopping Cart</li>
+			</ul>
+			<ul class="cartNavIcon" data-dojo-type="dojox.mobile.TabBar" fixed="top" fill="never"
+				data-dojo-props='barType:"segmentedControl", style:"width:200px; float:left;"'>
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props='moveTo:"page1"'><img src="images/list_bullets.png"/></li>
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props='moveTo:"myCart", selected:true'><img src="images/shop_cart.png"/></li>
+			</ul>
+
+			<ul data-dojo-type="dojox.mobile.TabBar" fixed="top" fill="never"
+				data-dojo-props='barType:"segmentedControl"'>
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props='style:"background-color:#E91D37; color:white; float:right; width:100px"'>Checkout</li>
+			</ul>
+			
+			<div  class="checkoutContent">
+			<p class="cartText">There are no items in your cart</p>
+			<ul id="checkoutRect" class="checkoutBox"
+				data-dojo-type="dojox.mobile.RoundRectList">
+
+			</ul>
+			</div>
+		</div> -->
+			<!-- details stub -->
+			<div data-dojo-type="dojox.mobile.ScrollableView" id="detailsPage"
+				class="page" data-dojo-props="selected:false">
+				<!-- <div data-dojo-type="dojox.mobile.Heading"
+			data-dojo-props="back:'Back',moveTo:'#'">
+			<span class="detailsHeader">Details</span>
+		</div> -->
+				<div class="detailsContent"></div>
+			</div>
+
+			<!-- Footer Nav Bars -->
+			<ul id="footerBar" data-dojo-type="dojox.mobile.TabBar"
+				data-dojo-props='fixed:"bottom"' fill="always">
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props="icon:'images/home_icon.png',moveTo:'home', selected:true">Home</li>
+				<li id="historyTabButton" data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props="icon:'images/history_icon.png',moveTo:'history'">History</li>
+				<li data-dojo-type="dojox.mobile.TabBarButton"
+					data-dojo-props="icon:'images/cart_icon.png',moveTo:'cart'">Cart</li>
+			</ul>
+		</div>
+
+	</div>
+	<script type="text/template" id="drug_squares_cart">
+			<div class="squares mblRoundRect" data-dojo-type="dojox.mobile.RoundRect"
+				data-dojo-props='shadow:false'>
+				<div class="squareHeader">
+					<div class></div>
+					<span><%= cartDrug.get("medicationName")%></span>
+				</div>
+				<div class="squareContent" id="<%=cartDrug.get("buttonPrefix")%>Content">
+					<div class="squareContentFiller"></div>
+					<p>
+						<%= cartDrug.get("dosage")%> <%= cartDrug.get("daySupply")%><br> Prescribed by<br><%= cartDrug.get("prescriberFirstName")%> <%= cartDrug.get("prescriberLastName")%><br>
+					</p>
+				</div>
+				<div class="squareButtonArea">
+				<button id="<%= cartDrug.get("buttonPrefix")%>Button" class="squareButton" data-dojo-type="dojox.mobile.Button">Add to Cart</button>
+				</div>
+			</div>
+</script>
+
+	<script type="text/template" id="drug_history_ready">
+	
+
+			<div class="squaresHistory mblRoundRect" data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props='shadow:false'>
+			<div class="squareHistoryHeader">
+				<span><%= cartDrug.get("medicationName") %></span>
+			</div>
+			<div class="squareHistoryContent">
+				<div class="squareHistoryContentFiller"></div>
+				<p>
+					<%= cartDrug.get("dosage")%> <%= cartDrug.get("daySupply")%><br> Prescribed by<br><%= cartDrug.get("prescriberFirstName")%> <%= cartDrug.get("prescriberLastName")%><br>
+				</p>
+				<p>
+					Refills Left:<strong> <%= cartDrug.get("availableRefills")%></strong><br> Last Filled:<strong>
+						<%=cartDrug.get("rxLastFilledDate")%></strong>
+				</p>
+			</div>
+				<div class="squareHistoryButtonArea">
+				<button id="<%=cartDrug.get("medicationName")%>DetailButton" class="squareDetailButton" data-dojo-type="dojox.mobile.Button">Details</button>
+				
+			</div>
+			</div>
+</script>
+
+	<script type="text/template" id="drug_history_presc">
+			<div class="squaresHistory squaresHistoryPresc mblRoundRect" data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props='shadow:false, moveTo:"details"'>
+			<div class="squareHistoryHeader">
+				<span><%= cartDrug.get("medicationName") %></span>
+			</div>
+			<div class="squareHistoryContent">
+				<div class="squareHistoryContentFiller"></div>
+				<p>
+					<%= cartDrug.get("dosage")%> <%= cartDrug.get("daySupply")%><br> Prescribed by<br><%= cartDrug.get("prescriberFirstName")%> <%= cartDrug.get("prescriberLastName")%><br>
+				</p>
+				<p>
+					Refills Left:<strong> <%=cartDrug.get("availableRefills")%></strong><br> Issued:<strong>
+						<%=cartDrug.get("rxIssueDate")%></strong><br>Last Shipped: <strong><%=cartDrug.get("rxLastFilledDate")%></strong>
+				</p>
+			</div>
+				<div class="squareHistoryButtonArea">
+				<button id="<%=cartDrug.get("medicationName")%>DetailButton" class="squareDetailButton" data-dojo-type="dojox.mobile.Button">Details</button>
+
+			</div>
+		</div>
+            
+</script>
+	<script type="text/template" id="details_template">
+	<!-- Details page -->
+		
+		<div class="detailsContentData mblRoundRect" data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props="">
+            
+				<p>Medication Name: <%=drug.get("medicationName")%></p>
+<p>Rx Number: <%=drug.get("rxNumber")%></p>
+				<p>Available Refills: <%=drug.get("availableRefills")%></p>
+				<p>Day Supply: <%=drug.get("daySupply")%></p>
+              	<p>Dosage: <%=drug.get("dosage")%></p>
+				<p>Fill Status: <%=drug.get("fillStatus")%></p>
+<p>Form: <%=drug.get("form")%></p>
+<p>Patient Pay Amount: <%=drug.get("patientPayAmount")%></p>
+<p>Prescribed by: <%=drug.get("prescriberFirstName")%> <%=drug.get("prescriberLastName")%></p>
+         <p>Prescriber Phone: <%=drug.get("prescriberPhone")%></p>
+		<p>Rx Expiration Date: <%=drug.get("rxExpirationDate")%></p>
+<p>Rx Issue Date: <%=drug.get("rxIssueDate")%></p>
+<p>Last Filled: <%=drug.get("rxLastFilled")%></p>
+<p>Rx Status: <%=drug.get("rxStatus")%></p>
+                  
+		</div>
+
+	</div>
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+	
+</body>
+</html>

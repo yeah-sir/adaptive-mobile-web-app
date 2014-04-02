@@ -1,0 +1,98 @@
+<div data-dojo-type="dojox.mobile.ScrollableView" id="history"
+	data-dojo-props="selected:false,scrollDir:'h', class:'page'">
+	<!-- <ul data-dojo-type="dojox.mobile.TabBar" fixed="top" fill="always"
+		data-dojo-props='barType:"segmentedControl"'>
+		<li data-dojo-type="dojox.mobile.TabBarButton"
+			data-dojo-props='moveTo:"refill1", selected: true'>Refills
+			Available</li>
+		<li data-dojo-type="dojox.mobile.TabBarButton"
+			data-dojo-props='moveTo:"presc1"'>Prescription History</li>
+	</ul> -->
+
+	<!-- Refill Page sub view -->
+
+
+	<!-- Swap View 1 -->
+	<div data-dojo-type="dojox.mobile.SwapView" id="presc1"
+		data-dojo-props="selected:false, style:'top:8px;'">
+		
+
+		<select class="filterMonths">
+			<option>Last 3 months</option>
+			<option selected>Last month</option>
+			<option>Last 6 months</option>
+		</select>
+		
+		<div class="readyForRefill"></div>
+		<div class="prescHistory"></div>
+	
+	</div>
+
+	<!-- Swap View 2 -->
+	<div data-dojo-type="dojox.mobile.SwapView" id="presc2"
+		data-dojo-props="selected:false, style:'top:8px;'">
+
+		
+		<div data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props='class:"squaresHistory",shadow:false, moveTo:"details"'>
+			<div class="squareHistoryHeader">
+				<span>Ampyra</span>
+			</div>
+			<div class="squareHistoryContent">
+				<p>
+					20ml Injection<br> Prescribed by<br>Edward Shanhuwoa<br>
+				</p>
+				<p style="float: left;">
+					Refills Left:<strong> 2</strong><br> Last Filled:<strong>
+						11/22/33</strong>
+				</p>
+				<div data-dojo-type="dojox.mobile.RoundRect"
+					data-dojo-props='style:"text-align:center; float:right; width:50px; background-color:rgb(195,195,195); color:white;"'>
+					Details</div>
+			</div>
+		</div>
+
+		<div data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props='class:"squaresHistory",shadow:false, moveTo:"details"'>
+			<div class="squareHistoryHeader">
+				<span>Paracetamol</span>
+			</div>
+			<div class="squareHistoryContent">
+				<p>
+					20ml Injection<br> Prescribed by<br>Edward Shanhuwoa<br>
+				</p>
+				<p style="float: left;">
+					Refills Left:<strong> 2</strong><br> Last Filled:<strong>
+						11/22/33</strong>
+				</p>
+				<div data-dojo-type="dojox.mobile.RoundRect"
+					data-dojo-props='style:"text-align:center; float:right; width:50px; background-color:rgb(195,195,195); color:white;"'>
+					Details</div>
+			</div>
+		</div>
+
+		<div data-dojo-type="dojox.mobile.RoundRect"
+			data-dojo-props='class:"squaresHistory",shadow:false, moveTo:"details"'>
+			<div class="squareHistoryHeader">
+				<span>Amoxylin</span>
+			</div>
+			<div class="squareHistoryContent">
+				<p>
+					20ml Injection<br> Prescribed by<br>Edward Shanhuwoa<br>
+				</p>
+				<p style="float: left;">
+					Refills Left:<strong> 2</strong><br> Last Filled:<strong>
+						11/22/33</strong>
+				</p>
+				<div data-dojo-type="dojox.mobile.RoundRect"
+					data-dojo-props='style:"text-align:center; float:right; width:50px; background-color:rgb(195,195,195); color:white;"'>
+					Details</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div data-dojo-type="dojox.mobile.PageIndicator"
+		data-dojo-props="fixed:'bottom', refId:'refill1'"></div>
+
+</div>
